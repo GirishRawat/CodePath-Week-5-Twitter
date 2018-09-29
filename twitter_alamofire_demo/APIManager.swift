@@ -12,11 +12,15 @@ import OAuthSwift
 import OAuthSwiftAlamofire
 import KeychainAccess
 
+
 class APIManager: SessionManager {
+    var name: String?
+    var screenName: String?
+
     
     // MARK: TODO: Add App Keys
-    static let consumerKey = "YOUR_KEY_HERE"
-    static let consumerSecret = "YOUR_SECRET_HERE"
+    static let consumerKey = Keys.consumerKey
+    static let consumerSecret = Keys.consumerSecret
 
     static let requestTokenURL = "https://api.twitter.com/oauth/request_token"
     static let authorizeURL = "https://api.twitter.com/oauth/authorize"
