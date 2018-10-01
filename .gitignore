@@ -6,6 +6,9 @@
 build/
 DerivedData/
 
+keys.swift
+twitter_alamofire_demo/keys.swift
+
 ## Various settings
 *.pbxuser
 !default.pbxuser

@@ -18,6 +18,16 @@ class APIManager: SessionManager {
     var screenName: String?
 
     
+    static func logout() {
+        // 1. Clear current user
+        User.current = nil
+        
+        // TODO: 2. Deauthorize OAuth tokens
+        
+        // 3. Post logout notification
+        NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
+    }
+    
     // MARK: TODO: Add App Keys
     static let consumerKey = Keys.consumerKey
     static let consumerSecret = Keys.consumerSecret
@@ -86,6 +96,8 @@ class APIManager: SessionManager {
             completion(tweets, nil)
             return
         }
+        
+
 
         request(URL(string: "https://api.twitter.com/1.1/statuses/home_timeline.json")!, method: .get)
             .validate()
@@ -114,6 +126,8 @@ class APIManager: SessionManager {
         }
     }
     
+    
+    
     // MARK: TODO: Favorite a Tweet
     
     // MARK: TODO: Un-Favorite a Tweet
@@ -124,7 +138,8 @@ class APIManager: SessionManager {
     
     // MARK: TODO: Compose Tweet
     
-    // MARK: TODO: Get User Timeline
+    // MARK: Get User Timeline
+
     
     
     //--------------------------------------------------------------------------------//
